@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.hedron.meditate.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_musicFragment"
+            app:destination="@id/musicFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +26,9 @@
         android:name="com.hedron.meditate.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="com.hedron.meditate.ui.music.MusicFragment"
+        android:label="music_fragment"
+        tools:layout="@layout/music_fragment" />
 </navigation>

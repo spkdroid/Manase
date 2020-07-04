@@ -51,37 +51,7 @@ class MeditationAdapter
         holder.mTitle.setText(models[position].title)
         holder.mDes.setText(models[position].description)
         holder.mImageView.setImageResource(models[position].img)
-
-        //set card bg based on position
-        if (models[position].title.equals(
-                "Sleep",
-                ignoreCase = true
-            ) || models[position].title.equals("10 min guides", ignoreCase = true)
-        ) holder.cardView.setCardBackgroundColor(Color.parseColor("#C6DEF1")) else if (models[position].title.equals(
-                "Stress & Anxiety",
-                ignoreCase = true
-            ) || models[position].title.equals("White Noise", ignoreCase = true)
-        ) holder.cardView.setCardBackgroundColor(Color.parseColor("#F7D9C4")) else if (models[position].title.equals(
-                "Self care",
-                ignoreCase = true
-            )
-        ) holder.cardView.setCardBackgroundColor(Color.parseColor("#DBCDF0")) else if (models[position].title.equals(
-                "Midnight Thoughts",
-                ignoreCase = true
-            ) || models[position].title.equals("Nature", ignoreCase = true)
-        ) holder.cardView.setCardBackgroundColor(Color.parseColor("#E2CFC4")) else if (models[position].title.equals(
-                "Slow down",
-                ignoreCase = true
-            )
-        ) holder.cardView.setCardBackgroundColor(Color.parseColor("#C9E4DE")) else if (models[position].title.equals(
-                "Piano",
-                ignoreCase = true
-            )
-        ) holder.cardView.setCardBackgroundColor(Color.parseColor("#E2E2DF")) else if (models[position].title.equals(
-                "Rainy days",
-                ignoreCase = true
-            )
-        ) holder.cardView.setCardBackgroundColor(Color.parseColor("#FAEDCB"))
+        holder.cardView.setCardBackgroundColor(Color.parseColor("#FAEDCB"))
     }
 
     override fun getItemCount(): Int {
