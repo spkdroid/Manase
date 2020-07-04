@@ -4,10 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.hedron.meditate.Repository.MeditateRepository
+import com.hedron.meditate.Repository.QuotesRepository
 import com.hedron.meditate.model.MeditationModel
+import com.hedron.meditate.model.QuoteModel
 
 class HomeViewModel : ViewModel() {
-
 
     private val _meditationList = MutableLiveData<ArrayList<MeditationModel>>().apply {
         value = MeditateRepository().getMeditation()
@@ -17,7 +18,13 @@ class HomeViewModel : ViewModel() {
         value = "This is home Fragment"
     }
 
+    private val _quote:MutableLiveData<QuoteModel> = MutableLiveData<QuoteModel>().apply {
+        value = QuotesRepository().getQuote()
+    }
+
     val text: LiveData<String> = _text
 
     val meditationList : LiveData<ArrayList<MeditationModel>> = _meditationList
+
+    val quote = _quote
 }

@@ -31,6 +31,11 @@ class HomeFragment : Fragment() {
                 ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
+        homeViewModel.quote.observe(viewLifecycleOwner, Observer {
+            root.quoteText.text = it.quoteText
+            root.quoteAuthorText.text = it.authorText
+        })
+
         homeViewModel.meditationList.observe(viewLifecycleOwner, Observer {
             root.recyclerView.adapter = MeditationAdapter(this.requireActivity(),it)
             root.recyclerView.layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.VERTICAL,false)
