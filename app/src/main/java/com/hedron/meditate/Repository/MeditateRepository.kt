@@ -6,9 +6,9 @@ import com.hedron.meditate.model.MeditationModel
 class MeditateRepository {
     fun getMeditation(): ArrayList<MeditationModel> {
         var listGuides = ArrayList<MeditationModel>()
-        listGuides.add(MeditationModel("Sleep", "Feel the night. Watch its beauty.", R.drawable.sleep))
-        listGuides.add(MeditationModel("Self care", "Soothes your soul.", R.drawable.calm))
-        listGuides.add(MeditationModel("Breathe", "Stop, relax and breathe.", R.drawable.nature))
+        listGuides.add(MeditationModel("Sleep", "Nap time is my happy hour", R.drawable.sleep_icon))
+        listGuides.add(MeditationModel("Self care", "Giving yourself permission to pause", R.drawable.self_icon))
+        listGuides.add(MeditationModel("Breathe", "Inhale peace and exhale worry", R.drawable.breath_icon))
         return listGuides
     }
 }
