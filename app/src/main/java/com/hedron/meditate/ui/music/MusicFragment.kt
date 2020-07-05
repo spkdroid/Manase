@@ -45,6 +45,8 @@ class MusicFragment : Fragment() {
                 "Sleep" -> descriptor = requireContext().assets.openFd("thunder.mp3")
                 "Self care" -> descriptor = requireContext().assets.openFd("nature.mp3")
                 "Breathe" -> descriptor = requireContext().assets.openFd("breath.mp3")
+                "Veena" -> descriptor = requireContext().assets.openFd("veena.mp3")
+                "Piano" -> descriptor = requireContext().assets.openFd("piano.mp3")
             }
             //descriptor = requireContext().assets.openFd("thunder.mp3")
             mediaPlayer = MediaPlayer()
