@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.hedron.meditate.R
+import kotlinx.android.synthetic.main.fragment_dashboard.view.*
+import java.text.DateFormat
+import java.util.*
 
 class DashboardFragment : Fragment() {
 
@@ -27,6 +28,13 @@ class DashboardFragment : Fragment() {
        //     textView.text = it
        //
         // })
+        root.datetxt.text = getDateTime();
         return root
     }
+
+    fun getDateTime(): String? {
+        val calendar = Calendar.getInstance()
+        return DateFormat.getDateInstance(DateFormat.FULL).format(calendar.time)
+    }
+
 }
