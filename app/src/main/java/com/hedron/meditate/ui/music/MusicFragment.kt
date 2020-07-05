@@ -1,5 +1,6 @@
 package com.hedron.meditate.ui.music
 
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -23,19 +24,18 @@ class MusicFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProviders.of(this).get(MusicViewModel::class.java)
         var v =  inflater.inflate(R.layout.music_fragment, container, false)
+
+        var title = arguments?.get("title").toString()
+        var desc = arguments?.get("description").toString()
+        var imageByte = arguments?.get("image") as ByteArray
+
+        v.meditateTitleTxt.text = title + "\n" + desc
+        v.meditateImageView.setImageBitmap(BitmapFactory.decodeByteArray(imageByte,0,imageByte.size))
         v.headerCard.setCardBackgroundColor(Color.parseColor("#FAEDCB"))
 
-
         return v
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MusicViewModel::class.java)
-        // TODO: Use the ViewModel
-        //iconCard.setCardBackgroundColor(Color.parseColor("#FAEDCB"));
-
     }
 
 }

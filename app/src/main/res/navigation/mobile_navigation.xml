@@ -29,6 +29,6 @@
     <fragment
         android:id="@+id/musicFragment"
         android:name="com.hedron.meditate.ui.music.MusicFragment"
-        android:label="music_fragment"
+        android:label="@string/app_name"
         tools:layout="@layout/music_fragment" />
 </navigation>
