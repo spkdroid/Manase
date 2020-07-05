@@ -40,7 +40,13 @@ class MusicFragment : Fragment() {
         v.headerCard.setCardBackgroundColor(Color.parseColor("#FAEDCB"))
 
         try {
-            descriptor = requireContext().assets.openFd("thunder.mp3")
+
+            when(title) {
+                "Sleep" -> descriptor = requireContext().assets.openFd("thunder.mp3")
+                "Self care" -> descriptor = requireContext().assets.openFd("nature.mp3")
+                "Breathe" -> descriptor = requireContext().assets.openFd("breath.mp3")
+            }
+            //descriptor = requireContext().assets.openFd("thunder.mp3")
             mediaPlayer = MediaPlayer()
             mediaPlayer.setDataSource(
                 descriptor.fileDescriptor,
