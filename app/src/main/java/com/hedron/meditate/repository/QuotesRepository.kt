@@ -1,7 +1,5 @@
-package com.hedron.meditate.Repository
+package com.hedron.meditate.repository
 
-import com.hedron.meditate.R
-import com.hedron.meditate.model.MeditationModel
 import com.hedron.meditate.model.QuoteModel
 
 class QuotesRepository {

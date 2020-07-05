@@ -3,8 +3,8 @@ package com.hedron.meditate.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hedron.meditate.Repository.MeditateRepository
-import com.hedron.meditate.Repository.QuotesRepository
+import com.hedron.meditate.repository.MeditateRepository
+import com.hedron.meditate.repository.QuotesRepository
 import com.hedron.meditate.model.MeditationModel
 import com.hedron.meditate.model.QuoteModel
 

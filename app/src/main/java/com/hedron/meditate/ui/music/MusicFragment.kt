@@ -1,16 +1,18 @@
 package com.hedron.meditate.ui.music
 
+import android.content.res.AssetFileDescriptor
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import androidx.lifecycle.ViewModelProviders
+import android.media.MediaPlayer
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.hedron.meditate.R
 import kotlinx.android.synthetic.main.music_fragment.view.*
+import java.lang.Exception
 
 class MusicFragment : Fragment() {
 
@@ -19,6 +21,8 @@ class MusicFragment : Fragment() {
     }
 
     private lateinit var viewModel: MusicViewModel
+    private  var mediaPlayer:MediaPlayer = MediaPlayer()
+    private lateinit var descriptor: AssetFileDescriptor
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +39,35 @@ class MusicFragment : Fragment() {
         v.meditateImageView.setImageBitmap(BitmapFactory.decodeByteArray(imageByte,0,imageByte.size))
         v.headerCard.setCardBackgroundColor(Color.parseColor("#FAEDCB"))
 
+        try {
+            descriptor = requireContext().assets.openFd("thunder.mp3")
+            mediaPlayer = MediaPlayer()
+            mediaPlayer.setDataSource(
+                descriptor.fileDescriptor,
+                descriptor.startOffset,
+                descriptor.length
+            )
+            mediaPlayer.prepare()
+            descriptor.close()
+        } catch (e:Exception) {
+
+        }
+
+
+        v.playCard.setOnClickListener {
+            if(mediaPlayer.isPlaying) {
+                mediaPlayer.pause()
+            } else {
+                mediaPlayer.start()
+            }
+        }
+
         return v
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer.release()
     }
 
 }
