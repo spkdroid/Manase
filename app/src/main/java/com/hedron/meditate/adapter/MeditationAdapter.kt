@@ -30,18 +30,7 @@ class MeditationAdapter
         val view: View = LayoutInflater.from(c).inflate(R.layout.home_card_row, parent, false)
         val vHolder = MeditationHolder(view)
 
-        vHolder.cardView.setOnClickListener { /*
-                        val gTitle = models[vHolder.getAdapterPosition()].title
-                        val gDes = models[vHolder.getAdapterPosition()].description
-
-
-                        //intent to meditation activity
-                        val intent = Intent(c, MeditationActivity::class.java)
-                        intent.putExtra("iTitle", gTitle)
-                        intent.putExtra("iDes", gDes)
-                        intent.putExtra("iImage", bytes)
-                        c.startActivity(intent) */
-
+        vHolder.cardView.setOnClickListener {
             val bitmapDrawable =
                 vHolder.mImageView.getDrawable() as BitmapDrawable //get image from drawable
             val bitmap = bitmapDrawable.bitmap
