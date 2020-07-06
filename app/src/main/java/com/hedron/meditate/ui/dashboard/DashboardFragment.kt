@@ -28,7 +28,9 @@ class DashboardFragment : Fragment() {
        //     textView.text = it
        //
         // })
-        root.datetxt.text = getDateTime();
+        root.datetxt.text = getDateTime()
+        root.clockView.setTime(10,10,10)
+
         return root
     }
 
