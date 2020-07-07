@@ -444,6 +444,11 @@
 
     </androidx.cardview.widget.CardView>
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="100dp">
+    </View>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/saveCard"
         android:layout_alignParentBottom="true"
