@@ -61,5 +61,7 @@ dependencies {
 
     // clockview
     implementation 'com.github.samlss:ClockView:1.0'
-
+    // Room Presistance
+    implementation 'android.arch.persistence.room:runtime:1.1.0'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.0'
 }
