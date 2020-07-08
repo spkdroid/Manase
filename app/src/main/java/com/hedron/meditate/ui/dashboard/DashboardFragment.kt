@@ -10,8 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.hedron.meditate.Constant
 import com.hedron.meditate.R
+import com.hedron.meditate.model.MoodModel
+import com.hedron.meditate.repository.MoodRepository
+import com.hedron.meditate.repository.database.MoodDatabase
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.text.DateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -36,7 +41,10 @@ class DashboardFragment : Fragment() {
         root.datetxt.text = getDateTime()
 
         val milliseconds = System.currentTimeMillis()
-        root.clockView.setTime(TimeUnit.MILLISECONDS.toHours(milliseconds).toInt(), TimeUnit.MILLISECONDS.toMinutes(milliseconds).toInt(), TimeUnit.MILLISECONDS.toSeconds(milliseconds).toInt())
+        var hour = ((milliseconds / (1000*60*60)) % 24).toInt()
+        var min =  ((milliseconds / (1000*60)) % 60).toInt()
+        var sec = ((milliseconds / 1000) % 60).toInt()
+        root.clockView.setTime(hour, min, sec)
         var selectedMood = "";
 
         root.happyCardView.setOnClickListener {
@@ -138,8 +146,21 @@ class DashboardFragment : Fragment() {
 
         root.saveCard.setOnClickListener {
             if(selectedMood.isNotEmpty() && dialogEditTxt.text!!.isNotEmpty()) {
-                Toast.makeText(requireContext(),selectedMood,Toast.LENGTH_LONG).show()
-                Toast.makeText(requireContext(),dialogEditTxt.text,Toast.LENGTH_LONG).show()
+//                Toast.makeText(requireContext(),selectedMood,Toast.LENGTH_LONG).show()
+//                Toast.makeText(requireContext(),dialogEditTxt.text,Toast.LENGTH_LONG).show()
+
+
+
+                GlobalScope.launch {
+               //     var size = repository.allMoods.value!!.size
+                    val moodDao = MoodDatabase.getDatabase(requireContext()).moodDaoAccess()
+                    var repository = MoodRepository(moodDao)
+                    var size = repository.getAll().size
+                    repository.insert(MoodModel(repository.getAll().size+1,selectedMood.toString(),getDateTime().toString(),dialogEditTxt.text.toString()))
+                }
+
+
+                //var allMoods = repository.allMoods
             } else {
                 Toast.makeText(requireContext(),"Input Error",Toast.LENGTH_LONG).show()
             }
@@ -152,4 +173,5 @@ class DashboardFragment : Fragment() {
         val calendar = Calendar.getInstance()
         return DateFormat.getDateInstance(DateFormat.FULL).format(calendar.time)
     }
+
 }

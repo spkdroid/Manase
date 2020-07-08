@@ -1,5 +1,6 @@
 package com.hedron.meditate.repository.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -10,7 +11,7 @@ import com.hedron.meditate.model.MoodModel
 interface MoodDao {
 
     @Insert
-    fun insertSingleSong(logToInsert: MoodModel)
+    fun insertSingleMood(logToInsert: MoodModel)
 
     @Query("SELECT * FROM MoodModel WHERE uid = :logID")
     fun fetchLogByID(logID: Int): MoodModel
