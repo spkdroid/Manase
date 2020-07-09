@@ -1,7 +1,9 @@
 package com.hedron.meditate.ui.dashboard
 
+import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +12,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.hedron.meditate.Constant
 import com.hedron.meditate.R
+import com.hedron.meditate.model.MoodModel
+import com.hedron.meditate.repository.MoodRepository
+import com.hedron.meditate.repository.database.MoodDatabase
+import de.mrapp.android.dialog.MaterialDialog
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.text.DateFormat
 import java.util.*
-import java.util.concurrent.TimeUnit
+
 
 class DashboardFragment : Fragment() {
 
@@ -36,8 +44,12 @@ class DashboardFragment : Fragment() {
         root.datetxt.text = getDateTime()
 
         val milliseconds = System.currentTimeMillis()
-        root.clockView.setTime(TimeUnit.MILLISECONDS.toHours(milliseconds).toInt(), TimeUnit.MILLISECONDS.toMinutes(milliseconds).toInt(), TimeUnit.MILLISECONDS.toSeconds(milliseconds).toInt())
-        var selectedMood = "";
+        var hour = ((milliseconds / (1000*60*60)) % 24).toInt()
+        var min =  ((milliseconds / (1000*60)) % 60).toInt()
+        var sec = ((milliseconds / 1000) % 60).toInt()
+        root.clockView.setTime(hour, min, sec)
+        var selectedMood = ""
+        var selectedDrawable = R.drawable.happy_emotion
 
         root.happyCardView.setOnClickListener {
             root.happyCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
@@ -49,6 +61,7 @@ class DashboardFragment : Fragment() {
             root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             selectedMood = Constant.Happy
+            selectedDrawable = R.drawable.happy_emotion
         }
 
         root.sadCardView.setOnClickListener {
@@ -61,6 +74,7 @@ class DashboardFragment : Fragment() {
             root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             selectedMood = Constant.Sad
+            selectedDrawable = R.drawable.sad_emotion
         }
 
         root.angryCardView.setOnClickListener {
@@ -73,6 +87,7 @@ class DashboardFragment : Fragment() {
             root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             selectedMood = Constant.Angry
+            selectedDrawable = R.drawable.angry_emotion
         }
 
         root.disgustCardView.setOnClickListener {
@@ -85,6 +100,7 @@ class DashboardFragment : Fragment() {
             root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             selectedMood = Constant.Disgust
+            selectedDrawable = R.drawable.digust_emotion
         }
 
         root.fearCardView.setOnClickListener {
@@ -97,6 +113,7 @@ class DashboardFragment : Fragment() {
             root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             selectedMood = Constant.Fear
+            selectedDrawable = R.drawable.fear_emotion
         }
 
         root.loveCardView.setOnClickListener {
@@ -109,6 +126,7 @@ class DashboardFragment : Fragment() {
             root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             selectedMood = Constant.Love
+            selectedDrawable = R.drawable.love_emotion
         }
 
         root.supriseCardView.setOnClickListener {
@@ -121,6 +139,7 @@ class DashboardFragment : Fragment() {
             root.supriseCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
             root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             selectedMood = Constant.Suprise
+            selectedDrawable = R.drawable.suprise_emotion
         }
 
         root.sickCardView.setOnClickListener {
@@ -133,13 +152,32 @@ class DashboardFragment : Fragment() {
             root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
             root.sickCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
             selectedMood = Constant.Sick
+            selectedDrawable = R.drawable.sick_emotion
         }
 
 
         root.saveCard.setOnClickListener {
             if(selectedMood.isNotEmpty() && dialogEditTxt.text!!.isNotEmpty()) {
-                Toast.makeText(requireContext(),selectedMood,Toast.LENGTH_LONG).show()
-                Toast.makeText(requireContext(),dialogEditTxt.text,Toast.LENGTH_LONG).show()
+                GlobalScope.launch {
+                    val moodDao = MoodDatabase.getDatabase(requireContext()).moodDaoAccess()
+                    var repository = MoodRepository(moodDao)
+                    var size = repository.getAll().size
+                    repository.insert(MoodModel(repository.getAll().size+1,selectedMood.toString(),getDateTime().toString(),dialogEditTxt.text.toString()))
+                }
+
+
+                val dialogBuilder: MaterialDialog.Builder = MaterialDialog.Builder(requireContext())
+                dialogBuilder.setTitle(R.string.success_dialog_title)
+                dialogBuilder.setMessage(R.string.success_dialog_message)
+                dialogBuilder.showHeader(true)
+                dialogBuilder.setHeaderBackground(selectedDrawable)
+                dialogBuilder.setPositiveButton("OK") { _, _ -> clearScreen(root) }
+                val dialog: MaterialDialog = dialogBuilder.create()
+                dialog.show()
+                dialog.getButton(MaterialDialog.BUTTON_POSITIVE).setTextSize(TypedValue.COMPLEX_UNIT_DIP,
+                    20F
+                )
+                dialog.getButton(MaterialDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK)
             } else {
                 Toast.makeText(requireContext(),"Input Error",Toast.LENGTH_LONG).show()
             }
@@ -148,8 +186,21 @@ class DashboardFragment : Fragment() {
         return root
     }
 
+    private fun clearScreen(root: View) {
+        root.dialogEditTxt.text!!.clear()
+        root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+        root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+        root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+        root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+        root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+        root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+        root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+        root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+    }
+
     fun getDateTime(): String? {
         val calendar = Calendar.getInstance()
         return DateFormat.getDateInstance(DateFormat.FULL).format(calendar.time)
     }
+
 }
