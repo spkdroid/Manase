@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import com.hedron.meditate.R
+import kotlinx.android.synthetic.main.fragment_notifications.view.*
 
 class NotificationsFragment : Fragment() {
 
@@ -26,6 +28,12 @@ class NotificationsFragment : Fragment() {
     //    notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
     //        textView.text = it
     //    })
+
+        root.moodHistoryButton.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_navigation_notifications_to_historyFragment)
+        }
+
         return root
     }
 }

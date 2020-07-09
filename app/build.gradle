@@ -39,7 +39,6 @@ android {
 }
 
 
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -65,8 +64,8 @@ dependencies {
     // clockview
     implementation 'com.github.samlss:ClockView:1.0'
     // Room Presistance
-   // implementation 'android.arch.persistence.room:runtime:1.1.0'
-   // annotationProcessor 'android.arch.persistence.room:compiler:1.1.0'
+    // implementation 'android.arch.persistence.room:runtime:1.1.0'
+    // annotationProcessor 'android.arch.persistence.room:compiler:1.1.0'
 
     // Room components
     implementation "androidx.room:room-runtime:2.2.5"
