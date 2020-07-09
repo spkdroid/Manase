@@ -47,7 +47,7 @@ android:focusable="true">
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/moodDescription"
+                android:id="@+id/moodDescriptionText"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
                 android:layout_gravity="center"
