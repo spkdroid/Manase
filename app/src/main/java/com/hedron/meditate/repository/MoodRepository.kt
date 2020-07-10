@@ -11,11 +11,11 @@ class MoodRepository(private val moodDao:MoodDao) {
 
     val allMoods:List<MoodModel> = moodDao.fetchAll()
 
-    suspend fun getAll():List<MoodModel> {
+    fun getAll():List<MoodModel> {
         return moodDao.fetchAll()
     }
 
-    suspend fun insert(mood:MoodModel) {
+    fun insert(mood:MoodModel) {
         moodDao.insertSingleMood(mood)
     }
 

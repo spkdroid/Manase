@@ -39,20 +39,24 @@ class HistoryFragment : Fragment() {
         }
         GlobalScope.launch {
             viewModel.getOfferList(requireContext())
-            v.moodItemList.layoutManager =
-                androidx.recyclerview.widget.GridLayoutManager(context, 1)
-            v.moodItemList.setHasFixedSize(true)
-
-            // observe the offer list from the view model
-            viewModel.moodHistoryList.observe(viewLifecycleOwner, Observer {
-                it.forEach { it ->
-                    moodModelList.add(it)
-                }
-                if (it.isNotEmpty()) {
-                    v.moodItemList.adapter!!.notifyDataSetChanged()
-                }
-            })
         }
+
+        v.moodItemList.layoutManager =
+            androidx.recyclerview.widget.GridLayoutManager(context, 1)
+        v.moodItemList.setHasFixedSize(true)
+
+        // observe the offer list from the view model
+        viewModel.moodHistoryList.observe(viewLifecycleOwner, Observer {
+            it.forEach { it ->
+                moodModelList.add(it)
+            }
+            if (it.isNotEmpty()) {
+                v.moodItemList.adapter!!.notifyDataSetChanged()
+            }
+        })
+
+
+
         return v
     }
 
