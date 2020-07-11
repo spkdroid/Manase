@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.hedron.meditate.R
-import devs.mulham.horizontalcalendar.HorizontalCalendar
-import kotlinx.android.synthetic.main.calendar_fragment.*
+import com.vivekkaushik.datepicker.OnDateSelectedListener
 import kotlinx.android.synthetic.main.calendar_fragment.view.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -27,18 +28,39 @@ class CalendarFragment : Fragment() {
     ): View? {
         var v =  inflater.inflate(R.layout.calendar_fragment, container, false)
 
-        /* starts before 1 month from now */
-        /* starts before 1 month from now */
-        val startDate: Calendar = Calendar.getInstance()
-        startDate.add(Calendar.MONTH, -1)
+        val calendar: Calendar = Calendar.getInstance()
+        var date: SimpleDateFormat = SimpleDateFormat("EEEE", Locale.getDefault())
+        val dayName: String = date.format(calendar.getTime()) //Monday
 
-/* ends after 1 month from now */
+        date = SimpleDateFormat("dd", Locale.getDefault())
+        val dayNumber: String = date.format(calendar.getTime()) //20
 
-/* ends after 1 month from now */
-        val endDate: Calendar = Calendar.getInstance()
-        endDate.add(Calendar.MONTH, 1)
+        date = SimpleDateFormat("MM", Locale.getDefault())
+        val monthNumber: String = date.format(calendar.getTime()) //04
 
+        date = SimpleDateFormat("yyyy", Locale.getDefault())
+        val year: String = date.format(calendar.getTime()) //2020
 
+        v.datePickerTimeline.setInitialDate(year.toInt(),monthNumber.toInt()-1,dayNumber.toInt()-3)
+
+        v.datePickerTimeline.setOnDateSelectedListener(object : OnDateSelectedListener {
+            override fun onDateSelected(year: Int, month: Int, day: Int, dayOfWeek: Int) {
+                // Do Something
+                var m = month+1
+                var s = "$year-($m)-$day"
+                Toast.makeText(requireContext(),s,Toast.LENGTH_LONG).show()
+            }
+
+            override fun onDisabledDateSelected(
+                year: Int,
+                month: Int,
+                day: Int,
+                dayOfWeek: Int,
+                isDisabled: Boolean
+            ) {
+                // Do Something
+            }
+        })
 
 
         return v
@@ -49,5 +71,4 @@ class CalendarFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(CalendarViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }
