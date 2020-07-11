@@ -1,6 +1,7 @@
 package com.hedron.meditate
 
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -32,4 +33,9 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
+   // override fun onBackPressed() {
+   //     Toast.makeText(applicationContext,"Hello",Toast.LENGTH_LONG).show()
+   // }
+
 }
