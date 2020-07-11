@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.observe
+import com.hedron.meditate.Constant
 import com.hedron.meditate.R
 import com.vivekkaushik.datepicker.OnDateSelectedListener
+import kotlinx.android.synthetic.main.calendar_fragment.*
 import kotlinx.android.synthetic.main.calendar_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -41,6 +44,61 @@ class CalendarFragment : Fragment() {
         date = SimpleDateFormat("yyyy", Locale.getDefault())
         val year: String = date.format(calendar.getTime()) //2020
 
+        viewModel.moodHistoryForDate.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            if(it.isNotEmpty()) {
+
+                resetGridView()
+
+                var happyFrq = 0
+                var sadFrq = 0
+                var angryFrq = 0
+                var disgustFrq = 0
+                var fearFrq = 0
+                var loveFrq = 0
+                var supriseFrq = 0
+                var sickFrq = 0
+
+                it.forEach {
+                    when(it.type) {
+                          Constant.Happy -> {
+                              happyFrq++
+                              happyFreq.text = happyFrq.toString() +" "+ Constant.Happy
+                          }
+                          Constant.Sad -> {
+                              sadFrq++
+                              sadFreq.text = sadFrq.toString() +" "+ Constant.Sad
+                          }
+                          Constant.Angry -> {
+                              angryFrq++
+                              angryFreq.text = angryFrq.toString() +" "+ Constant.Angry
+                          }
+                          Constant.Disgust -> {
+                              disgustFrq++
+                              disgustFreq.text = disgustFrq.toString() +" "+ Constant.Disgust
+                          }
+                          Constant.Fear -> {
+                              fearFrq++
+                              fearFreq.text = fearFrq.toString() +" "+ Constant.Fear
+                          }
+                          Constant.Sick -> {
+                              sickFrq++
+                              sickFreq.text = sickFrq.toString() +" "+ Constant.Sick
+                          }
+                          Constant.Suprise -> {
+                              supriseFrq++
+                              supriseFreq.text = supriseFrq.toString() +" "+ Constant.Suprise
+                          }
+                          Constant.Love -> {
+                              loveFrq++
+                              loveFreq.text = loveFrq.toString() +" "+ Constant.Love
+                          }
+                    }
+                }
+            } else {
+                resetGridView()
+            }
+        })
+
         v.datePickerTimeline.setInitialDate(year.toInt(),monthNumber.toInt()-1,dayNumber.toInt()-3)
 
         var d:Calendar = Calendar.getInstance()
@@ -57,7 +115,6 @@ class CalendarFragment : Fragment() {
                 else
                 s = "$day/$m/$year"
 
-                Toast.makeText(requireContext(),s,Toast.LENGTH_LONG).show()
                 viewModel.getMoodStatsForDate(requireContext(),s)
             }
 
@@ -73,7 +130,21 @@ class CalendarFragment : Fragment() {
         })
 
 
+
+
+
         return v
+    }
+
+    private fun resetGridView() {
+        happyFreq.text = Constant.Happy
+        sadFreq.text = Constant.Sad
+        angryFreq.text = Constant.Angry
+        disgustFreq.text =  Constant.Disgust
+        fearFreq.text =  Constant.Fear
+        sickFreq.text =  Constant.Sick
+        supriseFreq.text =  Constant.Suprise
+        loveFreq.text = Constant.Love
     }
 
     /*
