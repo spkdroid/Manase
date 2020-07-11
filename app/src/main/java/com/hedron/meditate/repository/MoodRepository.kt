@@ -19,4 +19,9 @@ class MoodRepository(private val moodDao:MoodDao) {
         moodDao.insertSingleMood(mood)
     }
 
+    fun getMoodByDate(date:String):List<MoodModel> {
+        return moodDao.fetchMoodByDate(date)
+    }
+
+
 }

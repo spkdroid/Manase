@@ -23,4 +23,6 @@
     <color name="colorLightGrey">#D2D2CF</color>
     <color name="colorPlatinum">#E2E2DF</color>
 
+    <color name="colorRed">#FF5511</color>
+
 </resources>

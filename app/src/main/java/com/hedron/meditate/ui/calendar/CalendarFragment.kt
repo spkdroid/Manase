@@ -43,11 +43,14 @@ class CalendarFragment : Fragment() {
 
         v.datePickerTimeline.setInitialDate(year.toInt(),monthNumber.toInt()-1,dayNumber.toInt()-3)
 
+        var d:Calendar = Calendar.getInstance()
+        v.datePickerTimeline.setActiveDate(d)
         v.datePickerTimeline.setOnDateSelectedListener(object : OnDateSelectedListener {
+
             override fun onDateSelected(year: Int, month: Int, day: Int, dayOfWeek: Int) {
                 // Do Something
                 var m = month+1
-                var s = "$year-($m)-$day"
+                var s = "$year-$m-$day"
                 Toast.makeText(requireContext(),s,Toast.LENGTH_LONG).show()
             }
 

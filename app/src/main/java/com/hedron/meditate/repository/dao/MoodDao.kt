@@ -16,6 +16,9 @@ interface MoodDao {
     @Query("SELECT * FROM MoodModel WHERE uid = :logID")
     fun fetchLogByID(logID: Int): MoodModel
 
+    @Query("SELECT * FROM MoodModel WHERE date = :date")
+    fun fetchMoodByDate(date:String) : List<MoodModel>
+
     @Query("SELECT * FROM MoodModel")
     fun fetchAll(): List<MoodModel>
 
