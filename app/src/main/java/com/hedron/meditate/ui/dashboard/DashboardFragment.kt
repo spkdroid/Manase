@@ -1,6 +1,5 @@
 package com.hedron.meditate.ui.dashboard
 
-import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.util.TypedValue
@@ -21,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -200,7 +200,8 @@ class DashboardFragment : Fragment() {
 
     fun getDateTime(): String? {
         val calendar = Calendar.getInstance()
-        return DateFormat.getDateInstance(DateFormat.FULL).format(calendar.time)
+        val df: DateFormat = SimpleDateFormat("dd/MM/yyyy")
+        return df.format(calendar.time)
     }
 
 }

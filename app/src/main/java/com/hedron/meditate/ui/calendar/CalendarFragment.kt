@@ -27,7 +27,7 @@ class CalendarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var v =  inflater.inflate(R.layout.calendar_fragment, container, false)
-
+        viewModel = ViewModelProviders.of(this).get(CalendarViewModel::class.java)
         val calendar: Calendar = Calendar.getInstance()
         var date: SimpleDateFormat = SimpleDateFormat("EEEE", Locale.getDefault())
         val dayName: String = date.format(calendar.getTime()) //Monday
@@ -50,8 +50,15 @@ class CalendarFragment : Fragment() {
             override fun onDateSelected(year: Int, month: Int, day: Int, dayOfWeek: Int) {
                 // Do Something
                 var m = month+1
-                var s = "$year-$m-$day"
+                var s = ""
+
+                if(m<10)
+                s = "$day/0$m/$year"
+                else
+                s = "$day/$m/$year"
+
                 Toast.makeText(requireContext(),s,Toast.LENGTH_LONG).show()
+                viewModel.getMoodStatsForDate(requireContext(),s)
             }
 
             override fun onDisabledDateSelected(
@@ -69,9 +76,10 @@ class CalendarFragment : Fragment() {
         return v
     }
 
+    /*
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CalendarViewModel::class.java)
         // TODO: Use the ViewModel
-    }
+    }*/
 }

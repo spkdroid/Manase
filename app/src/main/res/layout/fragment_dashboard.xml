@@ -395,9 +395,6 @@
                     android:src="@drawable/sick_emotion" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-
-
     </GridLayout>
 
     <TextView
