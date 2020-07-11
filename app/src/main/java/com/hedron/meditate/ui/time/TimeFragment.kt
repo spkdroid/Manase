@@ -21,7 +21,8 @@ class TimeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.time_fragment, container, false)
+        var v = inflater.inflate(R.layout.time_fragment, container, false)
+        return v
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

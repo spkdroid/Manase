@@ -4,6 +4,11 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
+    <string name="title_relax">Relax</string>
+    <string name="title_record">Record</string>
+    <string name="title_journal">Journal</string>
+
+
     <string name="success_dialog_title">Success</string>
     <string name="success_dialog_message">Your mood has been recorded</string>
 
