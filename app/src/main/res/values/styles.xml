@@ -28,16 +28,6 @@
         <item name="background">@color/colorPrimary</item>
     </style>
 
-    <style name="CustomWindowTitleBackground">
-        <item name="android:background">@color/colorPrimary</item>
-    </style>
-    <style name="CustomWindowTitle">
-        <item name="android:singleLine">true</item>
-        <item name="android:textAppearance">@style/CustomWindowTitleText</item>
-    </style>
-    <style name="CustomWindowTitleText">
-        <item name="android:textColor">@android:color/transparent</item>
-    </style>
     <style name="TitleEditText">
         <item name="colorControlNormal">#d2d2d2</item>
     </style>
