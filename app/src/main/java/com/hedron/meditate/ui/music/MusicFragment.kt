@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.github.ybq.android.spinkit.style.DoubleBounce
 import com.hedron.meditate.R
 import kotlinx.android.synthetic.main.music_fragment.view.*
 import java.lang.Exception
@@ -38,6 +39,8 @@ class MusicFragment : Fragment() {
         v.meditateTitleTxt.text = title + "\n" + desc
         v.meditateImageView.setImageBitmap(BitmapFactory.decodeByteArray(imageByte,0,imageByte.size))
         v.headerCard.setCardBackgroundColor(Color.parseColor("#FAEDCB"))
+        v.spin_kit.setIndeterminateDrawable(DoubleBounce())
+
 
         try {
 
@@ -65,8 +68,10 @@ class MusicFragment : Fragment() {
         v.playCard.setOnClickListener {
             if(mediaPlayer.isPlaying) {
                 mediaPlayer.pause()
+                v.spin_kit.visibility = View.INVISIBLE
             } else {
                 mediaPlayer.start()
+                v.spin_kit.visibility = View.VISIBLE
             }
         }
 
