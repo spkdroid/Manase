@@ -7,22 +7,16 @@
     <color name="colorOrange">#FF7F50</color>
 
     <color name="colorTerraCotta">#E76F51</color>
-    <color name="colorSandy">#F4A261</color>
     <color name="colorBlackTransparent">#80111111</color>
-    <color name="colorCharoal">#264653</color>
     <color name="colorGrean">#2A9D8F</color>
-    <color name="colorYellow">#E9C46A</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="color80White">#80FFFFFF</color>
     <!--    colours for meditation guide-->
-    <color name="colorBeauBlue">#C6DEF1</color>
     <color name="colorChampagnePink">#E2CFC4</color>
-    <color name="colorOrchidPink">#F2C6DE</color>
-    <color name="colorLightCyan">#C9E4DE</color>
-    <color name="colorPapayaWhip">#FAEDCB</color>
-    <color name="colorLightGrey">#D2D2CF</color>
-    <color name="colorPlatinum">#E2E2DF</color>
 
-    <color name="colorRed">#FF5511</color>
-
+    <color name="lightGray">#e6e6e6</color>
+    <color name="textLightGray">#8f8f8f</color>
+    <color name="error">#da1b21</color>
+    <color name="iconTint">#8e8e8e</color>
+    <color name="default_colour_grey">#8e8e8e</color>
+    <color name="NotificationTitle">#ffffff</color>
 </resources>

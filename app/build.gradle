@@ -76,4 +76,9 @@ dependencies {
     implementation 'com.github.michael-rapp:android-material-dialog:5.2.3'
 
     implementation 'com.vivekkaushik.datepicker:datePickerTimeline:0.0.4'
+    // graph
+    implementation 'com.robinhood.spark:spark:1.2.0'
+    // Alarm Manager
+    implementation 'com.github.zubairehman:AlarmManager:v1.2.0-alpha01'
+
 }

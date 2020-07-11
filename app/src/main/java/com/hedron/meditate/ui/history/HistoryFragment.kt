@@ -33,6 +33,8 @@ class HistoryFragment : Fragment() {
         var v:View =  inflater.inflate(R.layout.history_fragment, container, false)
         viewModel = ViewModelProviders.of(this).get(HistoryViewModel::class.java)
 
+
+
         moodModelList = ArrayList()
         v.moodItemList.apply {
             adapter = MoodViewAdapter(context, moodModelList)

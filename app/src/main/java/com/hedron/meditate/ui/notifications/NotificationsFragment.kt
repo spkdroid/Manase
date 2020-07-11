@@ -39,6 +39,11 @@ class NotificationsFragment : Fragment() {
                 .navigate(R.id.action_navigation_notifications_to_calendarFragment)
         }
 
+        root.moodNotificationButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_navigation_notifications_to_timeFragment)
+        }
+
+
 
         return root
     }
