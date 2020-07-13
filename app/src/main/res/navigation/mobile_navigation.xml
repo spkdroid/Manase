@@ -62,6 +62,6 @@
     <fragment
         android:id="@+id/breathFragment"
         android:name="com.hedron.meditate.ui.breath.BreathFragment"
-        android:label="breath_fragment"
+        android:label="@string/app_name"
         tools:layout="@layout/breath_fragment" />
 </navigation>

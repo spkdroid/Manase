@@ -7,13 +7,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.github.ybq.android.spinkit.style.MultiplePulse
 import com.github.ybq.android.spinkit.style.Pulse
+import com.github.ybq.android.spinkit.style.PulseRing
 import com.hedron.meditate.R
 import io.github.erehmi.countdown.CountDownTask
 import io.github.erehmi.countdown.CountDownTimers.OnCountDownListener
 import kotlinx.android.synthetic.main.breath_fragment.*
 import kotlinx.android.synthetic.main.breath_fragment.view.*
+import kotlinx.android.synthetic.main.music_fragment.*
+import kotlinx.android.synthetic.main.music_fragment.view.*
 import java.lang.String
+import java.util.function.DoublePredicate
 
 
 class BreathFragment : Fragment() {
@@ -29,7 +34,7 @@ class BreathFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var v:View = inflater.inflate(R.layout.breath_fragment, container, false)
-        v.breathSpinnerView.setIndeterminateDrawable(Pulse())
+        v.breathSpinnerView.setIndeterminateDrawable(MultiplePulse())
         v.breathSpinnerView.setColor(R.color.colorAccent)
 
         var countDownTask:CountDownTask = CountDownTask.create()
@@ -37,13 +42,15 @@ class BreathFragment : Fragment() {
         var CD_INTERVAL:Long = 1000
         var flag = true
 
-        v.startBreathButton.setOnClickListener{
+        v.breathPlayCard.setOnClickListener{
            if(v.breathSpinnerView.visibility == View.VISIBLE) {
                v.breathSpinnerView.visibility = View.INVISIBLE
                countDownTask.cancel()
+               v.breathStartStopText.text = "Play"
+               v.breathStatusText.text = "Breath"
            } else {
                v.breathSpinnerView.visibility = View.VISIBLE
-
+               v.breathStartStopText.text = "Pause"
                countDownTask.until(
                    breathStatusText,
                    targetMillis,
