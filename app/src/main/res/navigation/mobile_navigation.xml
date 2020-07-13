@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_navigation_notifications_to_timeFragment"
             app:destination="@id/timeFragment" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_breathFragment"
+            app:destination="@id/breathFragment" />
     </fragment>
     <fragment
         android:id="@+id/musicFragment"
@@ -56,4 +59,9 @@
         android:name="com.hedron.meditate.ui.time.TimeFragment"
         android:label="@string/app_name"
         tools:layout="@layout/time_fragment" />
+    <fragment
+        android:id="@+id/breathFragment"
+        android:name="com.hedron.meditate.ui.breath.BreathFragment"
+        android:label="breath_fragment"
+        tools:layout="@layout/breath_fragment" />
 </navigation>

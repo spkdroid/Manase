@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.hedron.meditate.R
@@ -30,20 +28,20 @@ class NotificationsFragment : Fragment() {
     //    })
 
         root.moodHistoryButton.setOnClickListener {
-            Navigation.findNavController(it)
-                .navigate(R.id.action_navigation_notifications_to_historyFragment)
+            Navigation.findNavController(it).navigate(R.id.action_navigation_notifications_to_historyFragment)
         }
 
         root.moodCalendarButton.setOnClickListener{
-            Navigation.findNavController(it)
-                .navigate(R.id.action_navigation_notifications_to_calendarFragment)
+            Navigation.findNavController(it).navigate(R.id.action_navigation_notifications_to_calendarFragment)
         }
 
         root.moodNotificationButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_navigation_notifications_to_timeFragment)
         }
 
-
+        root.breathButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_navigation_notifications_to_breathFragment)
+        }
 
         return root
     }
