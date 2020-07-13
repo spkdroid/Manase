@@ -3,6 +3,7 @@ package com.hedron.meditate.ui.music
 import android.content.res.AssetFileDescriptor
 import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.icu.text.CaseMap
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.github.ybq.android.spinkit.style.*
 import com.hedron.meditate.R
 import kotlinx.android.synthetic.main.music_fragment.view.*
 import java.lang.Exception
@@ -42,11 +44,26 @@ class MusicFragment : Fragment() {
         try {
 
             when(title) {
-                "Sleep" -> descriptor = requireContext().assets.openFd("thunder.mp3")
-                "Self care" -> descriptor = requireContext().assets.openFd("nature.mp3")
-                "Breathe" -> descriptor = requireContext().assets.openFd("breath.mp3")
-                "Veena" -> descriptor = requireContext().assets.openFd("veena.mp3")
-                "Piano" -> descriptor = requireContext().assets.openFd("piano.mp3")
+                "Sleep" -> {
+                    descriptor = requireContext().assets.openFd("thunder.mp3")
+                    v.spin_kit.setIndeterminateDrawable(DoubleBounce())
+                }
+                "Self care" -> {
+                    descriptor = requireContext().assets.openFd("nature.mp3")
+                    v.spin_kit.setIndeterminateDrawable(Wave())
+                }
+                 "Breathe" -> {
+                     descriptor = requireContext().assets.openFd("breath.mp3")
+                     v.spin_kit.setIndeterminateDrawable(WanderingCubes())
+                 }
+                "Veena" -> {
+                    descriptor = requireContext().assets.openFd("veena.mp3")
+                    v.spin_kit.setIndeterminateDrawable(CubeGrid())
+                }
+                "Piano" -> {
+                    descriptor = requireContext().assets.openFd("piano.mp3")
+                    v.spin_kit.setIndeterminateDrawable(FoldingCube())
+                }
             }
             //descriptor = requireContext().assets.openFd("thunder.mp3")
             mediaPlayer = MediaPlayer()
@@ -65,8 +82,10 @@ class MusicFragment : Fragment() {
         v.playCard.setOnClickListener {
             if(mediaPlayer.isPlaying) {
                 mediaPlayer.pause()
+                v.spin_kit.visibility = View.INVISIBLE
             } else {
                 mediaPlayer.start()
+                v.spin_kit.visibility = View.VISIBLE
             }
         }
 
