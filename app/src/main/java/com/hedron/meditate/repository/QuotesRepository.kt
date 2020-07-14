@@ -13,7 +13,10 @@ class QuotesRepository {
         quotesList.add(QuoteModel("If you want to live a happy life, tie it to a goal, not to people or things.","Albert Einstein"))
         quotesList.add(QuoteModel("Not how long, but how well you have lived is the main thing","Seneca"))
         quotesList.add(QuoteModel("In order to write about life first you must live it.","Ernest Hemingway"))
-        quotesList.add(QuoteModel("Turn your wounds into wisdom.","Oprah Winfrey"))
-        return quotesList[(0 until 7).random()]
+        quotesList.add(QuoteModel("Somewhere, something incredible is waiting to be known.","Carl Sagan"))
+        quotesList.add(QuoteModel("Don’t worry about failure; you only have to be right once.","Drew Houston"))
+        quotesList.add(QuoteModel("You carry the passport to your own happiness","Diane von Furstenberg"))
+        quotesList.add(QuoteModel("Never let success get to your head and never let failure get to your heart.","Drake"))
+        return quotesList[(0 until quotesList.size).random()]
     }
 }
