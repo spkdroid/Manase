@@ -84,4 +84,6 @@ dependencies {
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     // Count down
     implementation 'com.github.erehmi:countdowntask:1.0.1'
+    // Charts
+    implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
 }
