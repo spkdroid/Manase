@@ -7,7 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.calendar.CalendarFragment">
 
-
     <com.vivekkaushik.datepicker.DatePickerTimeline
         android:id="@+id/datePickerTimeline"
         android:layout_width="match_parent"
@@ -360,4 +359,9 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </GridLayout>
+
+    <com.anychart.AnyChartView
+        android:id="@+id/any_chart_view"
+        android:layout_width="match_parent"
+        android:layout_height="266dp" />
 </LinearLayout>

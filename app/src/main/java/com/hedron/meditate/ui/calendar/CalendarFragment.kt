@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.observe
+import com.anychart.AnyChart.pie
+import com.anychart.chart.common.dataentry.DataEntry
+import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.hedron.meditate.Constant
 import com.hedron.meditate.R
 import com.vivekkaushik.datepicker.OnDateSelectedListener
@@ -43,6 +44,8 @@ class CalendarFragment : Fragment() {
 
         date = SimpleDateFormat("yyyy", Locale.getDefault())
         val year: String = date.format(calendar.getTime()) //2020
+
+        val pie = pie()
 
         viewModel.moodHistoryForDate.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             if(it.isNotEmpty()) {
@@ -94,12 +97,28 @@ class CalendarFragment : Fragment() {
                           }
                     }
                 }
+
+                v.any_chart_view.invalidate()
+                val data: MutableList<DataEntry> = ArrayList()
+                data.add(ValueDataEntry("Happy", happyFrq))
+                data.add(ValueDataEntry("Sad", sadFrq))
+                data.add(ValueDataEntry("Angry", angryFrq))
+                data.add(ValueDataEntry("Disgust", disgustFrq))
+                data.add(ValueDataEntry("Fear", fearFrq))
+                data.add(ValueDataEntry("Sick", sickFrq))
+                data.add(ValueDataEntry("Suprise", supriseFrq))
+                data.add(ValueDataEntry("Love", loveFrq))
+                pie.data(data)
+
             } else {
+                v.any_chart_view.invalidate()
                 resetGridView()
             }
         })
 
         v.datePickerTimeline.setInitialDate(year.toInt(),monthNumber.toInt()-1,dayNumber.toInt()-3)
+
+
 
         var d:Calendar = Calendar.getInstance()
         v.datePickerTimeline.setActiveDate(d)
@@ -130,9 +149,13 @@ class CalendarFragment : Fragment() {
         })
 
 
-
-
-
+        pie.title("Mood Chart")
+        pie.labels().position("outside")
+        pie.legend().title().enabled(true)
+        pie.legend().title()
+            .text("Mood Frequency")
+            .padding(0.0, 0.0, 10.0, 0.0)
+        v.any_chart_view.setChart(pie)
         return v
     }
 
