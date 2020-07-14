@@ -1,5 +1,8 @@
 package com.hedron.meditate.ui.notifications
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.hedron.meditate.R
 import kotlinx.android.synthetic.main.fragment_notifications.view.*
+
 
 class NotificationsFragment : Fragment() {
 
@@ -41,6 +45,24 @@ class NotificationsFragment : Fragment() {
 
         root.breathButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_navigation_notifications_to_breathFragment)
+        }
+
+        root.feedbackButton.setOnClickListener{
+            try {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("market://details?id=com.hedron.meditate")
+                    )
+                )
+            } catch (anfe: ActivityNotFoundException) {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("http://play.google.com/store/apps/details?id=com.hedron.meditate")
+                    )
+                )
+            }
         }
 
         return root
