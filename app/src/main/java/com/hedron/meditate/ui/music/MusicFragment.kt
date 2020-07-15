@@ -72,6 +72,7 @@ class MusicFragment : Fragment() {
                 descriptor.startOffset,
                 descriptor.length
             )
+            mediaPlayer.isLooping = true
             mediaPlayer.prepare()
             descriptor.close()
         } catch (e:Exception) {
