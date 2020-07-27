@@ -79,7 +79,6 @@ class MusicFragment : Fragment() {
 
         }
 
-
         v.playCard.setOnClickListener {
             if(mediaPlayer.isPlaying) {
                 mediaPlayer.pause()
