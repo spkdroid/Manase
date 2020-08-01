@@ -69,35 +69,56 @@ class BreathFragment : Fragment() {
                            when(flagCode%7) {
                                0L -> {
                                    p = ""
+                                   if(flag)
                                    v.breathSpinnerView.shadowRadius = 30F
+                                   else
+                                   v.breathSpinnerView.shadowRadius = 90F
                                }
                                6L -> {
                                    p = "."
-                                   v.breathSpinnerView.shadowRadius = 40F
+                                   if(flag)
+                                        v.breathSpinnerView.shadowRadius = 40F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 80F
                                }
                                5L -> {
                                    p = ".."
-                                   v.breathSpinnerView.shadowRadius = 50F
+                                   if(flag)
+                                       v.breathSpinnerView.shadowRadius = 50F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 70F
                                }
                                4L -> {
                                    p = ".."
-                                   v.breathSpinnerView.shadowRadius = 60F
+                                   if(flag)
+                                       v.breathSpinnerView.shadowRadius = 60F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 60F
                                }
                                3L -> {
                                    p = ".."
-                                   v.breathSpinnerView.shadowRadius = 70F
+                                   if(flag)
+                                       v.breathSpinnerView.shadowRadius = 70F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 50F
                                }
                                2L -> {
                                    p = "..."
-                                   v.breathSpinnerView.shadowRadius = 80F
+                                   if(flag)
+                                       v.breathSpinnerView.shadowRadius = 80F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 40F
                                }
                                1L -> {
                                    p = "..."
-                                   v.breathSpinnerView.shadowRadius = 90F
+                                   if(flag)
+                                       v.breathSpinnerView.shadowRadius = 90F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 30F
                                }
                            }
-                           if(flag) (view as TextView).text = "Inhale" + p
-                           else (view as TextView).text = "Exhale" + p
+                           if(flag) (view as TextView).text = "Inhale$p"
+                           else (view as TextView).text = "Exhale$p"
                        }
 
                        override fun onFinish(view: View) {

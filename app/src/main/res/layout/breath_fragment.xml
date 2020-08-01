@@ -39,10 +39,10 @@
             android:layout_height="377dp"
             app:cv_border="true"
             app:cv_border_color="#000000"
-            app:cv_border_width="8dp"
-            app:cv_color="@color/colorOrange"
+            app:cv_border_width="1dp"
+            app:cv_color="@color/colorAccent"
             app:cv_shadow="true"
-            app:cv_shadow_color="@color/colorOrange"
+            app:cv_shadow_color="@color/colorAccent"
             />
 
     </LinearLayout>
