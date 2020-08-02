@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.github.ybq.android.spinkit.style.*
 import com.hedron.meditate.R
+import kotlinx.android.synthetic.main.music_fragment.*
 import kotlinx.android.synthetic.main.music_fragment.view.*
 import java.lang.Exception
 
@@ -64,6 +65,10 @@ class MusicFragment : Fragment() {
                     descriptor = requireContext().assets.openFd("piano.mp3")
                     v.spin_kit.setIndeterminateDrawable(FoldingCube())
                 }
+                "Violin" -> {
+                    descriptor = requireContext().assets.openFd("violin.mp3")
+                    v.spin_kit.setIndeterminateDrawable(CubeGrid())
+                }
             }
             //descriptor = requireContext().assets.openFd("thunder.mp3")
             mediaPlayer = MediaPlayer()
@@ -79,14 +84,15 @@ class MusicFragment : Fragment() {
 
         }
 
-
         v.playCard.setOnClickListener {
             if(mediaPlayer.isPlaying) {
                 mediaPlayer.pause()
                 v.spin_kit.visibility = View.INVISIBLE
+                playPauseText.text = "Play"
             } else {
                 mediaPlayer.start()
                 v.spin_kit.visibility = View.VISIBLE
+                playPauseText.text = "Pause"
             }
         }
 

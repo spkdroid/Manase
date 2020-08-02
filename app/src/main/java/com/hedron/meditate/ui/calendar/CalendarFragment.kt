@@ -33,8 +33,8 @@ class CalendarFragment : Fragment() {
         var v =  inflater.inflate(R.layout.calendar_fragment, container, false)
         viewModel = ViewModelProviders.of(this).get(CalendarViewModel::class.java)
         val calendar: Calendar = Calendar.getInstance()
-        var date: SimpleDateFormat = SimpleDateFormat("EEEE", Locale.getDefault())
-        val dayName: String = date.format(calendar.getTime()) //Monday
+        var date = SimpleDateFormat("EEEE", Locale.getDefault())
+        date.format(calendar.getTime()) //Monday
 
         date = SimpleDateFormat("dd", Locale.getDefault())
         val dayNumber: String = date.format(calendar.getTime()) //20
@@ -116,9 +116,7 @@ class CalendarFragment : Fragment() {
             }
         })
 
-        v.datePickerTimeline.setInitialDate(year.toInt(),monthNumber.toInt()-1,dayNumber.toInt()-3)
-
-
+        v.datePickerTimeline.setInitialDate(year.toInt(),monthNumber.toInt()-2,dayNumber.toInt()-30)
 
         var d:Calendar = Calendar.getInstance()
         v.datePickerTimeline.setActiveDate(d)
@@ -133,7 +131,6 @@ class CalendarFragment : Fragment() {
                 s = "$day/0$m/$year"
                 else
                 s = "$day/$m/$year"
-
                 viewModel.getMoodStatsForDate(requireContext(),s)
             }
 
@@ -170,10 +167,4 @@ class CalendarFragment : Fragment() {
         loveFreq.text = Constant.Love
     }
 
-    /*
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(CalendarViewModel::class.java)
-        // TODO: Use the ViewModel
-    }*/
 }

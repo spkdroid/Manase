@@ -19,18 +19,32 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="515dp"
+        android:layout_height="377dp"
         android:gravity="center"
         android:orientation="horizontal">
         <!-- Breathing circle. -->
-        <com.github.ybq.android.spinkit.SpinKitView
+        <!-- <com.github.ybq.android.spinkit.SpinKitView
             android:id="@+id/breathSpinnerView"
             style="@style/SpinKitView.Large.Circle"
             android:layout_width="match_parent"
             android:layout_height="578dp"
             android:layout_gravity="center"
             android:visibility="invisible"
-            app:SpinKit_Color="@color/colorOrange" />
+            app:SpinKit_Color="@color/colorOrange" /> -->
+
+        <com.mikhaellopez.circleview.CircleView
+            android:id="@+id/breathSpinnerView"
+            android:visibility="invisible"
+            android:layout_width="259dp"
+            android:layout_height="377dp"
+            app:cv_border="true"
+            app:cv_border_color="#000000"
+            app:cv_border_width="1dp"
+            app:cv_color="@color/colorAccent"
+            app:cv_shadow="true"
+            app:cv_shadow_color="@color/colorAccent"
+            />
+
     </LinearLayout>
 
     <androidx.cardview.widget.CardView

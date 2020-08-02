@@ -34,12 +34,10 @@ class BreathFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var v:View = inflater.inflate(R.layout.breath_fragment, container, false)
-        v.breathSpinnerView.setIndeterminateDrawable(MultiplePulse())
-        v.breathSpinnerView.setColor(R.color.colorAccent)
 
         var countDownTask:CountDownTask = CountDownTask.create()
         val targetMillis = CountDownTask.elapsedRealtime() + 1000 * 400
-        var CD_INTERVAL:Long = 1000
+        var currentInterval:Long = 1000
         var flag = true
 
         v.breathPlayCard.setOnClickListener{
@@ -54,14 +52,13 @@ class BreathFragment : Fragment() {
                countDownTask.until(
                    breathStatusText,
                    targetMillis,
-                   CD_INTERVAL.toLong(),
+                   currentInterval,
                    object : OnCountDownListener {
                        override fun onTick(
                            view: View,
                            millisUntilFinished: Long
                        ) {
-
-                           var flagCode = millisUntilFinished/CD_INTERVAL
+                           var flagCode = millisUntilFinished/currentInterval
                            var p = ""
 
                            if(flagCode % 7 == 0L) {
@@ -69,30 +66,66 @@ class BreathFragment : Fragment() {
                            }
 
                            when(flagCode%7) {
-                               0L -> p = ""
-                               6L -> p = "."
-                               5L -> p = ".."
-                               4L -> p = ".."
-                               3L -> p = ".."
-                               2L -> p = "..."
-                               1L -> p = "..."
+                               0L -> {
+                                   p = ""
+                                   if(flag)
+                                   v.breathSpinnerView.shadowRadius = 30F
+                                   else
+                                   v.breathSpinnerView.shadowRadius = 90F
+                               }
+                               6L -> {
+                                   p = "."
+                                   if(flag)
+                                        v.breathSpinnerView.shadowRadius = 40F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 80F
+                               }
+                               5L -> {
+                                   p = ".."
+                                   if(flag)
+                                       v.breathSpinnerView.shadowRadius = 50F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 70F
+                               }
+                               4L -> {
+                                   p = ".."
+                                   if(flag)
+                                       v.breathSpinnerView.shadowRadius = 60F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 60F
+                               }
+                               3L -> {
+                                   p = ".."
+                                   if(flag)
+                                       v.breathSpinnerView.shadowRadius = 70F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 50F
+                               }
+                               2L -> {
+                                   p = "..."
+                                   if(flag)
+                                       v.breathSpinnerView.shadowRadius = 80F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 40F
+                               }
+                               1L -> {
+                                   p = "..."
+                                   if(flag)
+                                       v.breathSpinnerView.shadowRadius = 90F
+                                   else
+                                       v.breathSpinnerView.shadowRadius = 30F
+                               }
                            }
-                           if(flag) (view as TextView).text = "Inhale" + p
-                           else (view as TextView).text = "Exhale" + p
-
-                           //(view as TextView).text =
-                             //  String.valueOf(millisUntilFinished / CD_INTERVAL)
+                           if(flag) (view as TextView).text = "Inhale$p"
+                           else (view as TextView).text = "Exhale$p"
                        }
 
                        override fun onFinish(view: View) {
                            (view as TextView).text = "DONE."
                        }
                    })
-
-
            }
         }
-
         return v
     }
 
@@ -101,5 +134,4 @@ class BreathFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(BreathViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

@@ -11,6 +11,7 @@ class MeditateRepository {
         listGuides.add(MeditationModel("Breathe", "Inhale peace and exhale worry", R.drawable.breath_icon))
         listGuides.add(MeditationModel("Piano", "Music Speaks when word's can't", R.drawable.piano))
         listGuides.add(MeditationModel("Veena", "SITAR The Essence of Indian music", R.drawable.veena))
+        listGuides.add(MeditationModel("Violin","Happiness is a thing to be practiced",R.drawable.violin_icon))
         return listGuides
     }
 }
