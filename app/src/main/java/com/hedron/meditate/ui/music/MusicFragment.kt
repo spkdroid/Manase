@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.github.ybq.android.spinkit.style.*
 import com.hedron.meditate.R
+import kotlinx.android.synthetic.main.music_fragment.*
 import kotlinx.android.synthetic.main.music_fragment.view.*
 import java.lang.Exception
 
@@ -87,9 +88,11 @@ class MusicFragment : Fragment() {
             if(mediaPlayer.isPlaying) {
                 mediaPlayer.pause()
                 v.spin_kit.visibility = View.INVISIBLE
+                playPauseText.text = "Play"
             } else {
                 mediaPlayer.start()
                 v.spin_kit.visibility = View.VISIBLE
+                playPauseText.text = "Pause"
             }
         }
 
