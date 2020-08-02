@@ -40,7 +40,6 @@ class BreathFragment : Fragment() {
         var currentInterval:Long = 1000
         var flag = true
 
-
         v.breathPlayCard.setOnClickListener{
            if(v.breathSpinnerView.visibility == View.VISIBLE) {
                v.breathSpinnerView.visibility = View.INVISIBLE
@@ -135,5 +134,4 @@ class BreathFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(BreathViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

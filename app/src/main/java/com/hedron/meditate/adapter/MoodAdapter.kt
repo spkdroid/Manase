@@ -35,12 +35,6 @@ class MoodViewAdapter(private val mContext: Context, private val mData: List<Moo
         val moodDescription = mData[position].description
         val moodDate = mData[position].date
 
-       // Picasso.get()
-       //     .load(offerUrl)
-       //     .placeholder(R.drawable.ic_launcher_background)
-       //     .error(R.drawable.ic_launcher_background)
-       //     .into(holder.offerImage)
-
         holder.moodImage.setImageResource(R.drawable.happy_emotion)
         holder.moodTitleText.text = moodTitle
         holder.moodDescriptionText.text = moodDescription

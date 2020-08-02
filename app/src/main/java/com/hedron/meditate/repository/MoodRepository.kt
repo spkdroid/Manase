@@ -9,7 +9,7 @@ import com.hedron.meditate.repository.database.MoodDatabase
 
 class MoodRepository(private val moodDao:MoodDao) {
 
-    val allMoods:List<MoodModel> = moodDao.fetchAll()
+    val allMoods:List<MoodModel> = moodDao.fetchAll().asReversed()
 
     fun getAll():List<MoodModel> {
         return moodDao.fetchAll()

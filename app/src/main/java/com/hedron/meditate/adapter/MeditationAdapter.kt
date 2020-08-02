@@ -60,8 +60,6 @@ class MeditationAdapter
     override fun getItemCount(): Int {
         return models.size
     }
-
-
 }
 
 class MeditationHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
