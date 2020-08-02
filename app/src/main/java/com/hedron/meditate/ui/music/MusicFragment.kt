@@ -64,6 +64,10 @@ class MusicFragment : Fragment() {
                     descriptor = requireContext().assets.openFd("piano.mp3")
                     v.spin_kit.setIndeterminateDrawable(FoldingCube())
                 }
+                "Violin" -> {
+                    descriptor = requireContext().assets.openFd("violin.mp3")
+                    v.spin_kit.setIndeterminateDrawable(CubeGrid())
+                }
             }
             //descriptor = requireContext().assets.openFd("thunder.mp3")
             mediaPlayer = MediaPlayer()
