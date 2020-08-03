@@ -52,105 +52,105 @@ class DashboardFragment : Fragment() {
         var selectedDrawable = R.drawable.happy_emotion
 
         root.happyCardView.setOnClickListener {
-            root.happyCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
-            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
+            root.happyCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"))
+            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
             selectedMood = Constant.Happy
             selectedDrawable = R.drawable.happy_emotion
         }
 
         root.sadCardView.setOnClickListener {
-            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sadCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
-            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
+            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sadCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"))
+            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
             selectedMood = Constant.Sad
             selectedDrawable = R.drawable.sad_emotion
         }
 
         root.angryCardView.setOnClickListener {
-            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.angryCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
-            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
+            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.angryCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"))
+            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
             selectedMood = Constant.Angry
             selectedDrawable = R.drawable.angry_emotion
         }
 
         root.disgustCardView.setOnClickListener {
-            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
-            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
+            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"))
+            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
             selectedMood = Constant.Disgust
             selectedDrawable = R.drawable.digust_emotion
         }
 
         root.fearCardView.setOnClickListener {
-            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.fearCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
-            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
+            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.fearCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"))
+            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
             selectedMood = Constant.Fear
             selectedDrawable = R.drawable.fear_emotion
         }
 
         root.loveCardView.setOnClickListener {
-            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.loveCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
-            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
+            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.loveCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"))
+            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
             selectedMood = Constant.Love
             selectedDrawable = R.drawable.love_emotion
         }
 
         root.supriseCardView.setOnClickListener {
-            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
-            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
+            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"))
+            root.sickCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
             selectedMood = Constant.Suprise
             selectedDrawable = R.drawable.suprise_emotion
         }
 
         root.sickCardView.setOnClickListener {
-            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"));
-            root.sickCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"));
+            root.happyCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sadCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.angryCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.disgustCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.fearCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.loveCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.supriseCardView.setCardBackgroundColor(Color.parseColor("#EDEDEB"))
+            root.sickCardView.setCardBackgroundColor(Color.parseColor("#C9E4DE"))
             selectedMood = Constant.Sick
             selectedDrawable = R.drawable.sick_emotion
         }

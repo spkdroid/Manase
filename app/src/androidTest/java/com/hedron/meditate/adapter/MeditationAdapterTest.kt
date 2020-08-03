@@ -1,5 +1,3 @@
 package com.hedron.meditate.adapter
 
-class MeditationAdapterTest {
-
-}
+class MeditationAdapterTest

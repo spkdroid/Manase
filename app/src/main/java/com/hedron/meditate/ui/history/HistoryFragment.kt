@@ -62,10 +62,4 @@ class HistoryFragment : Fragment() {
         return v
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
-
 }
