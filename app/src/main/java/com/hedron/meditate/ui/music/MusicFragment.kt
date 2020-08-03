@@ -70,7 +70,6 @@ class MusicFragment : Fragment() {
                     v.spin_kit.setIndeterminateDrawable(CubeGrid())
                 }
             }
-            //descriptor = requireContext().assets.openFd("thunder.mp3")
             mediaPlayer = MediaPlayer()
             mediaPlayer.setDataSource(
                 descriptor.fileDescriptor,
@@ -95,7 +94,6 @@ class MusicFragment : Fragment() {
                 playPauseText.text = "Pause"
             }
         }
-
         return v
     }
 

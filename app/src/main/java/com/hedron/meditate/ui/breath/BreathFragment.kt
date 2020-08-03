@@ -62,7 +62,7 @@ class BreathFragment : Fragment() {
                            var p = ""
 
                            if(flagCode % 7 == 0L) {
-                               flag = !flag;
+                               flag = !flag
                            }
 
                            when(flagCode%7) {

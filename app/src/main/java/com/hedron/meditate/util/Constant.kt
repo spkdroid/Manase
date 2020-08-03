@@ -1,4 +1,4 @@
-package com.hedron.meditate
+package com.hedron.meditate.util
 
 object Constant {
     var Happy:String = "Happy"

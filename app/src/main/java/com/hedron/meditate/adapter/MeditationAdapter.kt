@@ -32,7 +32,7 @@ class MeditationAdapter
 
         vHolder.cardView.setOnClickListener {
             val bitmapDrawable =
-                vHolder.mImageView.getDrawable() as BitmapDrawable //get image from drawable
+                vHolder.mImageView.drawable as BitmapDrawable //get image from drawable
             val bitmap = bitmapDrawable.bitmap
             val stream =
                 ByteArrayOutputStream() //image will get steam and bytes
@@ -51,8 +51,8 @@ class MeditationAdapter
     }
 
     override fun onBindViewHolder(holder: MeditationHolder, position: Int) {
-        holder.mTitle.setText(models[position].title)
-        holder.mDes.setText(models[position].description)
+        holder.mTitle.text = models[position].title
+        holder.mDes.text = models[position].description
         holder.mImageView.setImageResource(models[position].img)
         holder.cardView.setCardBackgroundColor(Color.parseColor("#FAEDCB"))
     }

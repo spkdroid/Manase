@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.anychart.AnyChart.pie
 import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
-import com.hedron.meditate.Constant
+import com.hedron.meditate.util.Constant
 import com.hedron.meditate.R
 import com.vivekkaushik.datepicker.OnDateSelectedListener
 import kotlinx.android.synthetic.main.calendar_fragment.*
@@ -34,16 +34,16 @@ class CalendarFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(CalendarViewModel::class.java)
         val calendar: Calendar = Calendar.getInstance()
         var date = SimpleDateFormat("EEEE", Locale.getDefault())
-        date.format(calendar.getTime()) //Monday
+        date.format(calendar.time) //Monday
 
         date = SimpleDateFormat("dd", Locale.getDefault())
-        val dayNumber: String = date.format(calendar.getTime()) //20
+        val dayNumber: String = date.format(calendar.time) //20
 
         date = SimpleDateFormat("MM", Locale.getDefault())
-        val monthNumber: String = date.format(calendar.getTime()) //04
+        val monthNumber: String = date.format(calendar.time) //04
 
         date = SimpleDateFormat("yyyy", Locale.getDefault())
-        val year: String = date.format(calendar.getTime()) //2020
+        val year: String = date.format(calendar.time) //2020
 
         val pie = pie()
 
