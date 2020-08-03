@@ -116,7 +116,7 @@ class CalendarFragment : Fragment() {
             }
         })
 
-        v.datePickerTimeline.setInitialDate(year.toInt(),monthNumber.toInt()-2,dayNumber.toInt()-30)
+        v.datePickerTimeline.setInitialDate(year.toInt(),monthNumber.toInt()-1,dayNumber.toInt()-10)
 
         var d:Calendar = Calendar.getInstance()
         v.datePickerTimeline.setActiveDate(d)
@@ -128,9 +128,10 @@ class CalendarFragment : Fragment() {
                 var s = ""
 
                 if(m<10)
-                s = "$day/0$m/$year"
+                s = "0$day/0$m/$year"
                 else
                 s = "$day/$m/$year"
+
                 viewModel.getMoodStatsForDate(requireContext(),s)
             }
 
