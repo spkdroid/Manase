@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.github.ybq.android.spinkit.style.*
@@ -88,10 +89,12 @@ class MusicFragment : Fragment() {
                 mediaPlayer.pause()
                 v.spin_kit.visibility = View.INVISIBLE
                 playPauseText.text = "Play"
+                playPauseImg.setImageDrawable(ContextCompat.getDrawable(it.context,android.R.drawable.ic_media_play))
             } else {
                 mediaPlayer.start()
                 v.spin_kit.visibility = View.VISIBLE
                 playPauseText.text = "Pause"
+                playPauseImg.setImageDrawable(ContextCompat.getDrawable(it.context,android.R.drawable.ic_media_pause))
             }
         }
         return v
