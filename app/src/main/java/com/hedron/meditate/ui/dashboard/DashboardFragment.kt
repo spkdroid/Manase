@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.hedron.meditate.Constant
+import com.hedron.meditate.util.Constant
 import com.hedron.meditate.R
 import com.hedron.meditate.model.MoodModel
 import com.hedron.meditate.repository.MoodRepository

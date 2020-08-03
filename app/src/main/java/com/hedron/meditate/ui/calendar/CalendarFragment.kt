@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.anychart.AnyChart.pie
 import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
-import com.hedron.meditate.Constant
+import com.hedron.meditate.util.Constant
 import com.hedron.meditate.R
 import com.vivekkaushik.datepicker.OnDateSelectedListener
 import kotlinx.android.synthetic.main.calendar_fragment.*
