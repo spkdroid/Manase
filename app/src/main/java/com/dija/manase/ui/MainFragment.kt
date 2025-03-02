@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.dija.manase.R
+import com.dija.manase.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,6 +15,8 @@ class MainFragment : Fragment() {
   companion object {
     fun newInstance() = MainFragment()
   }
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!  // Safe getter
 
   private val viewModel: MainViewModel by viewModels()
 
@@ -29,6 +31,7 @@ class MainFragment : Fragment() {
       container: ViewGroup?,
       savedInstanceState: Bundle?
   ): View {
-    return inflater.inflate(R.layout.fragment_main, container, false)
+      _binding = FragmentMainBinding.inflate(inflater, container, false)
+      return binding.root
   }
 }
