@@ -1,17 +1,3 @@
 <resources>
-    <string name="app_name">Manase - Mood Journal</string>
-    <string name="title_relax">Relax</string>
-    <string name="title_record">Record</string>
-    <string name="title_journal">Journal</string>
-    <string name="success_dialog_title">Success</string>
-    <string name="success_dialog_message">Your mood has been recorded</string>
-    <string name="title">Title</string>
-    <string name="time_now">Now</string>
-    <string name="date_today">Today</string>
-    <string name="forever">Forever</string>
-    <string name="no_repeat">Does not repeat</string>
-    <string name="times">times</string>
-    <string name="repeat_notification">Number of times to repeat: </string>
-    <string name="content_hint">Add notification content</string>
-    <string name="default_colour">Default colour</string>
+    <string name="app_name">Manase</string>
 </resources>
