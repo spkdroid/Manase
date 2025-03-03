@@ -29,12 +29,10 @@ class MusicRepository @Inject constructor(private val context: Context) {
 
     // Function to start the music service
     fun startMusicService(title: String) {
-        val intent = Intent(context, MusicService::class.java)
-        val audioFile = getAudioFile(title)
-        audioFile?.let {
-            intent.putExtra("title", it)  // Pass the audio file to the service
-            context.startService(intent)
+        val intent = Intent(context, MusicService::class.java).apply {
+            putExtra("title", title)
         }
+        context.startService(intent)
     }
 
     // Function to stop the music service

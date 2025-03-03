@@ -11,16 +11,16 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.dija.manase.R
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
-@AndroidEntryPoint
-class MusicService @Inject constructor(private var mediaPlayer: MediaPlayer) : Service() {
+class MusicService : Service() {
 
+    lateinit var mediaPlayer: MediaPlayer
 
     private var title: String? = null
 
     override fun onCreate() {
         super.onCreate()
+        mediaPlayer = MediaPlayer()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -66,7 +66,7 @@ class MusicService @Inject constructor(private var mediaPlayer: MediaPlayer) : S
 
         descriptor?.let {
             mediaPlayer = MediaPlayer().apply {
-                setDataSource(it.fileDescriptor, it.startOffset, it.length)
+                setDataSource(it.fileDescriptor)
                 isLooping = true
                 prepare()
                 start()
@@ -91,12 +91,12 @@ class MusicService @Inject constructor(private var mediaPlayer: MediaPlayer) : S
     fun getAudioFile(title: String): AssetFileDescriptor? {
         return try {
             when (title) {
-                "Sleep" -> this.assets.openFd("thunder.mp3")
-                "Self care" -> this.assets.openFd("nature.mp3")
-                "Breathe" -> this.assets.openFd("breath.mp3")
-                "Veena" -> this.assets.openFd("veena.mp3")
-                "Piano" -> this.assets.openFd("piano.mp3")
-                "Violin" -> this.assets.openFd("violin.mp3")
+                "Sleep" -> assets.openFd("thunder.mp3")
+                "Self care" -> assets.openFd("nature.mp3")
+                "Breathe" -> assets.openFd("breath.mp3")
+                "Veena" -> assets.openFd("veena.mp3")
+                "Piano" -> assets.openFd("piano.mp3")
+                "Violin" -> assets.openFd("violin.mp3")
                 else -> null
             }
         } catch (e: Exception) {
