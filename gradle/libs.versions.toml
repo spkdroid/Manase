@@ -1,5 +1,6 @@
 [versions]
 agp = "8.8.2"
+androidSpinkit = "1.4.0"
 hiltAndroid = "2.51"
 hiltCompiler = "2.51"
 kotlin = "2.0.0"
@@ -19,6 +20,7 @@ legacySupportV4 = "1.0.0"
 fragmentKtx = "1.8.6"
 
 [libraries]
+android-spinkit = { module = "com.github.ybq:Android-SpinKit", version.ref = "androidSpinkit" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }

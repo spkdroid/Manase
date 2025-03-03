@@ -60,5 +60,4 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
-
 }
