@@ -1,17 +1,10 @@
 # Manase
 
 <p align="center">
-  <img src="https://github.com/spkdroid/Manase/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png" alt="Manase Logo" width="220"/>
+  <img src="https://github.com/spkdroid/Manase/blob/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" alt="Manase Logo" width="220"/>
 </p>
 
-<h4 align="center">Track your mood, relax, and improve your breathing with the Manase Mood Journal.</h4>
-
-<p align="center">
-  <img src="https://github.com/spkdroid/Manase/blob/Sprint1-Development/screenshot/1.jpg" height=500 width=240/>
-  <img src="https://github.com/spkdroid/Manase/blob/Sprint1-Development/screenshot/2.jpg" height=500 width=240/>
-  <img src="https://github.com/spkdroid/Manase/blob/Sprint1-Development/screenshot/3.jpg" height=500 width=240/>
-  <img src="https://github.com/spkdroid/Manase/blob/Sprint1-Development/screenshot/4.jpg" height=500 width=240/>
-</p>
+<h4 align="center">Track your mood, relax, and improve your breathing with the Manase Journal.</h4>
 
 ## Features
 - **Mood Tracking** – Log and track your mood trends over time.
