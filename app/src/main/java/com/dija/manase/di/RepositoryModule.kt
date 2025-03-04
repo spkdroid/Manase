@@ -4,6 +4,7 @@ import android.content.Context
 import android.media.MediaPlayer
 import com.dija.manase.data.repository.MeditateRepository
 import com.dija.manase.data.repository.MusicRepository
+import com.dija.manase.data.service.MusicService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,15 +23,14 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideMusicRepository(@ApplicationContext context: Context): MusicRepository {
-        return MusicRepository(context)
+    fun provideMusicRepository(@ApplicationContext context: Context, musicService: MusicService): MusicRepository {
+        return MusicRepository(musicService)
     }
 
     @Provides
     @Singleton
-    fun provideMediaPlayer(context: Context): MediaPlayer {
+    fun provideMediaPlayer(): MediaPlayer {
         return MediaPlayer()
     }
-
 
 }

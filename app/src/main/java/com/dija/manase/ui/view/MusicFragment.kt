@@ -8,9 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.dija.manase.databinding.FragmentMusicBinding
 import com.dija.manase.ui.viewmodel.MusicViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MusicFragment : Fragment() {
@@ -59,7 +62,9 @@ class MusicFragment : Fragment() {
         }
 
         binding?.playCard?.setOnClickListener {
-            viewModel.toggleMusic(title)
+            lifecycleScope.launch {
+                viewModel.toggleMusic(title)
+            }
         }
     }
 

@@ -1,57 +1,18 @@
 package com.dija.manase.data.repository
 
-import android.content.Context
-import android.content.Intent
-import android.content.res.AssetFileDescriptor
 import com.dija.manase.data.service.MusicService
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MusicRepository @Inject constructor(private val context: Context) {
+class MusicRepository @Inject constructor(private val musicService: MusicService) {
 
-    // Function to get the audio file based on the title
-    fun getAudioFile(title: String): AssetFileDescriptor? {
-        return try {
-            when (title) {
-                "Sleep" -> context.assets.openFd("thunder.mp3")
-                "Self care" -> context.assets.openFd("nature.mp3")
-                "Breathe" -> context.assets.openFd("breath.mp3")
-                "Veena" -> context.assets.openFd("veena.mp3")
-                "Piano" -> context.assets.openFd("piano.mp3")
-                "Violin" -> context.assets.openFd("violin.mp3")
-                else -> null
-            }
-        } catch (e: Exception) {
-            null
-        }
+     suspend fun startMusicService(title: String) {
+        musicService.playMusic(title)
     }
 
-    // Function to start the music service
-    fun startMusicService(title: String) {
-        val intent = Intent(context, MusicService::class.java).apply {
-            putExtra("title", title)
-        }
-        context.startService(intent)
+    suspend fun stopMusicService() {
+        musicService.stopMusic()
     }
 
-    // Function to stop the music service
-    fun stopMusicService() {
-        val intent = Intent(context, MusicService::class.java)
-        context.stopService(intent)
-    }
-
-    // Function to pause the music
-    fun pauseMusic() {
-        val intent = Intent(context, MusicService::class.java)
-        intent.action = "PAUSE"
-        context.startService(intent)
-    }
-
-    // Function to resume the music
-    fun resumeMusic() {
-        val intent = Intent(context, MusicService::class.java)
-        intent.action = "RESUME"
-        context.startService(intent)
-    }
 }

@@ -12,11 +12,10 @@ class MusicViewModel @Inject constructor(
     private val musicRepository: MusicRepository
 ) : ViewModel() {
 
-
     private val _isMusicPlaying = MutableLiveData<Boolean>(false)
     val isMusicPlaying: LiveData<Boolean> = _isMusicPlaying
 
-    fun toggleMusic(title: String) {
+    suspend fun toggleMusic(title: String) {
         if (_isMusicPlaying.value == true) {
             musicRepository.stopMusicService()
             _isMusicPlaying.value = false
@@ -26,18 +25,4 @@ class MusicViewModel @Inject constructor(
         }
     }
 
-    // Stop music service
-    fun stopMusic() {
-        musicRepository.stopMusicService()
-    }
-
-    // Pause music service
-    fun pauseMusic() {
-        musicRepository.pauseMusic()
-    }
-
-    // Resume music service
-    fun resumeMusic() {
-        musicRepository.resumeMusic()
-    }
 }
