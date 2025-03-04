@@ -1,64 +1,63 @@
-<h1 align="center" style="text-align: center; padding-bottom: 20px;">
-  <br>
- <img src="https://github.com/spkdroid/Manase/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png" alt="Bike Index" width="220"/>
-  <br>
-  Manase
-  <br>
-</h1>
+# Manase
 
-<h4 align="center">View all the latest cash back offers on the Coupon Application</h4>
+<p align="center">
+  <img src="https://github.com/spkdroid/Manase/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png" alt="Manase Logo" width="220"/>
+</p>
+
+<h4 align="center">Track your mood, relax, and improve your breathing with the Manase Mood Journal.</h4>
 
 <p align="center">
   <img src="https://github.com/spkdroid/Manase/blob/Sprint1-Development/screenshot/1.jpg" height=500 width=240/>
-  <img src="https://github.com/spkdroid/Manase/blob/Sprint1-Development/screenshot/2.jpg" height=500 width=240/> 
+  <img src="https://github.com/spkdroid/Manase/blob/Sprint1-Development/screenshot/2.jpg" height=500 width=240/>
   <img src="https://github.com/spkdroid/Manase/blob/Sprint1-Development/screenshot/3.jpg" height=500 width=240/>
   <img src="https://github.com/spkdroid/Manase/blob/Sprint1-Development/screenshot/4.jpg" height=500 width=240/>
 </p>
 
 ## Features
+- **Mood Tracking** – Log and track your mood trends over time.
+- **Relaxation Techniques** – Guided breathing exercises to help you unwind.
+- **Custom Reminders** – Set reminders for journaling and self-care.
+- **Offline Support** – Access your journal entries without an internet connection.
 
-Manase Mood Journal
+## Technology Stack
+Manase is built using modern Android development technologies:
 
-A mood journal application to track and manage your mood. This application will also help your to relax and improve your breath cycle.
+- **[MVVM](https://developer.android.com/topic/libraries/architecture/viewmodel)** – Architectural pattern for better separation of concerns.
+- **[Navigation Component](https://developer.android.com/topic/libraries/architecture/navigation/)** – Simplifies in-app navigation.
+- **[Dagger 2](https://google.github.io/dagger/)** – Dependency injection framework.
+- **[Retrofit](https://square.github.io/retrofit/)** – For making network requests.
+- **[Picasso](https://github.com/square/picasso)** – Image loading and caching.
+- **[Paper](https://github.com/pilgr/Paper)** – Lightweight NoSQL database for offline storage.
 
-## Technology stack
+## Installation
+### Prerequisites
+- **Android Studio 3.6 or later**
+- **Android SDK**
 
-Technology stack used in Manase
+### Steps
+1. Clone or download the repository:
+   ```sh
+   git clone https://github.com/spkdroid/Manase.git
+   ```
+2. Open the project in **Android Studio**.
+3. Sync Gradle and build the project.
+4. Run the application on an emulator or physical device.
 
-* [MVVM](https://developer.android.com/topic/libraries/architecture/viewmodel)
-  - Design pattern
-* [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation/)
-  - Jetpack navigation
-* [Dagger2](https://google.github.io/dagger/)
-  - Dependency injection framework
-* [Retrofit](https://square.github.io/retrofit/)
-  - Http client
-* [Picasso](https://github.com/square/picasso)
-  - Image downloading and caching
-* [Paper](https://github.com/pilgr/Paper)
-  - Offline Storage
-  
-**Android Studio 3.6 required**
+## Author
+- **Ramkumar Velmurugan** – [Portfolio](http://www.spkdroid.com/CV/)
 
-* Clone or download the repo
-* Import project and build
+## License
+```
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at:
 
-## Authors
+    http://www.apache.org/licenses/LICENSE-2.0
 
-* **Ramkumar Velmurugan** - <a href="http://www.spkdroid.com/CV/">Portfolio</a>
-
-### License
-    Copyright 2020 Ramkumar Velmurugan
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
 
